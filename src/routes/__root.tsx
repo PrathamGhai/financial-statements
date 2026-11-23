@@ -1,4 +1,4 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import { HeadContent, Link, Scripts, createRootRoute } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
@@ -35,6 +35,20 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <header className="border-b border-edge">
+  <div className="max-w-4xl mx-auto px-6 py-4 flex flex-wrap gap-6 items-center justify-between">
+    <Link to="/" className="font-display text-xl">Kissena Baked Goods</Link>
+    <nav className="flex flex-wrap gap-6" aria-label="Site menu">
+  <Link to="/" className="text-ink-soft hover:text-ink"
+    activeProps={{ className: "font-semibold underline decoration-brand underline-offset-8" }}
+    activeOptions={{ exact: true }}>Home</Link>
+  <Link to="/disclosures"
+  className="text-ink-soft hover:text-ink"
+  activeProps={{ className: "font-semibold underline decoration-brand underline-offset-8" }}
+  activeOptions={{ exact: true }}>Disclosures</Link>
+</nav>
+  </div>
+</header>
         <main className="max-w-4xl mx-auto px-6 py-12">{children}</main>
         <TanStackDevtools
           config={{
